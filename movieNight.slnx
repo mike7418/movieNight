@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="movieNight.esproj">
+    <Build />
+    <Deploy />
+  </Project>
+</Solution>
