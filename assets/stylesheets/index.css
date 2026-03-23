@@ -16,7 +16,7 @@
     --select_color: #dcdfe6;
     --ratings-color: #7342d65d;
     --star-color: #fabf2a;
-    --rbga: rgba(115, 66, 214, 0.1);
+    --rbga: rgba(81, 100, 230, 0.92);
     --img-highlight: #7342d65d;
 }
 
@@ -35,6 +35,7 @@ nav
 {
     height: 80px;
     display: flex;
+    //border: 1px solid black;
 }
 
 img
@@ -65,7 +66,7 @@ li
 h1
 {
     font-size: 56px;
-    color: var(--rbga);
+    color: var(--primary-color);
     margin-bottom: 24px;
     text-align: center;
 }
@@ -89,12 +90,17 @@ button:active
 
 .btn
 {
-    background-color: var(--secondary-color);
+    background-color: var(--rbga);
     color: var(--select_color);
     padding: 12px 24px;
     font-size: 20px;
     border-radius: 10px;
     border: none;
+}
+
+button:active
+{
+    transform: translateY(1px);
 }
 
 .color__accent
@@ -116,6 +122,7 @@ button:active
     justify-content: space-around;
     align-items: center;
     margin: 0 auto;
+    //border: 1px solid green;
 }
 
 .nav__link
@@ -150,6 +157,7 @@ button:active
     font-size: 40px;
     border: none;
     color: var(--secondary-color);
+    display: none;
 }
 
 .menu__backdrop
