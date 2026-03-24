@@ -19,6 +19,21 @@ document.addEventListener('DOMContentLoaded', function() {
             searchBox.classList.remove('visible');
         });
     }
+
+    // close button inside the search box
+    const closeBtn = document.querySelector('.search-close');
+    if (closeBtn) {
+        closeBtn.addEventListener('click', function () {
+            searchBox.classList.remove('visible');
+        });
+    }
+
+    // close on ESC
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && searchBox.classList.contains('visible')) {
+            searchBox.classList.remove('visible');
+        }
+    });
 });
 
 function openMenu() {

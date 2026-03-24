@@ -286,11 +286,30 @@ header
     transform: translateX(-50%);
 }
 
+/* hidden by default; shown when .visible is present */
+.movies__search--box {
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 180ms ease, visibility 0s linear 180ms;
+}
+
 .movies__search--box.visible {
     visibility: visible;
     opacity: 1;
     pointer-events: auto;
     transition-delay: 0s;
+}
+
+.search-close {
+    position: absolute;
+    top: 6px;
+    right: 8px;
+    border: none;
+    background: transparent;
+    font-size: 20px;
+    cursor: pointer;
+    line-height: 1;
 }
 
 .control-label
@@ -312,4 +331,10 @@ select {
   border-radius: 4px; /* Rounded corners */
   box-sizing: border-box; /* Ensures padding/border is included in width */
   font-size: 16px;
+}
+
+fieldset
+{
+    font-weight: bold;
+    border-radius: 12px;
 }
