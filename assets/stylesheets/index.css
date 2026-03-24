@@ -339,6 +339,70 @@ fieldset
     border-radius: 12px;
 }
 
+/* Results grid and pagination */
+.results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+    margin: 20px auto;
+    width: 100%;
+    max-width: 1200px;
+    padding: 12px;
+}
+
+.result-card {
+    background: rgba(255,255,255,0.9);
+    border-radius: 8px;
+    padding: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.result-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.result-card h3 {
+    margin: 8px 0 4px;
+    font-size: 18px;
+    text-align: center;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px;
+}
+
+.pagination button {
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    background: var(--secondary-color);
+    cursor: pointer;
+}
+
+.detail-view {
+    max-width: 900px;
+    margin: 12px auto;
+    background: rgba(255,255,255,0.95);
+    padding: 16px;
+    border-radius: 8px;
+}
+
+.detail-top {
+    display: flex;
+    gap: 16px;
+}
+
+.detail-top img { width: 260px; height: auto; object-fit: cover; border-radius: 6px }
+
 .fa-spinner {
     animation: rotate(0);
 }

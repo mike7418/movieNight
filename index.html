@@ -97,8 +97,11 @@
                                 </fieldset>
                             </form>
                         </div>
-                        <div class="movies">
-                            <i class="fas fa-spinner movies__loading--spinner"></i>
+                        <div class="movies" id="movies-container">
+                            <i class="fas fa-spinner movies__loading--spinner" id="movies-spinner" hidden></i>
+                            <div id="search-results" class="results-grid" aria-live="polite"></div>
+                            <div id="pagination" class="pagination" aria-label="Search pagination"></div>
+                            <div id="detail-view" class="detail-view" hidden></div>
                         </div>
                     </div>
                 </div>

@@ -1,6 +1,8 @@
 // JavaScript source code
 // https://www.omdbapi.com/?i=tt3896198&apikey=fbd4261d
 
+let lastSearch = null; // { s, y, page, totalResults }
+
 document.addEventListener('DOMContentLoaded', function() {
     const toggleBtn = document.getElementById('toggle-search');
     const searchBox = document.querySelector('.movies__search--box');
@@ -19,6 +21,146 @@ document.addEventListener('DOMContentLoaded', function() {
             searchBox.classList.remove('visible');
         });
     }
+
+// UI helper: spinner
+function showSpinner(show) {
+    const spinner = document.getElementById('movies-spinner');
+    if (!spinner) return;
+    spinner.hidden = !show;
+}
+
+// Render the grid of search results
+function renderSearchResults(items = []) {
+    const container = document.getElementById('search-results');
+    const detail = document.getElementById('detail-view');
+    if (!container) return;
+    container.innerHTML = '';
+    if (detail) detail.hidden = true;
+
+    if (!items.length) {
+        container.innerHTML = '<p>No results found.</p>';
+        return;
+    }
+
+    items.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'result-card';
+        const img = document.createElement('img');
+        img.src = (item.Poster && item.Poster !== 'N/A') ? item.Poster : 'assets/images/no-poster.png';
+        img.alt = item.Title;
+
+        const h3 = document.createElement('h3');
+        h3.textContent = `${item.Title} (${item.Year})`;
+
+        const btn = document.createElement('button');
+        btn.textContent = 'View';
+        btn.addEventListener('click', async function () {
+            try {
+                showSpinner(true);
+                const detail = await fetchOmdb({ i: item.imdbID, plot: 'full' });
+                renderDetail(detail);
+            } catch (e) {
+                console.error(e);
+                alert('Failed to load details');
+            } finally {
+                showSpinner(false);
+            }
+        });
+
+        card.appendChild(img);
+        card.appendChild(h3);
+        card.appendChild(btn);
+        container.appendChild(card);
+    });
+}
+
+// Render pagination controls
+function renderPagination(totalResults = 0, currentPage = 1) {
+    const pagination = document.getElementById('pagination');
+    if (!pagination) return;
+    pagination.innerHTML = '';
+
+    const total = Math.ceil(totalResults / 10); // OMDb returns 10 per page
+    if (total <= 1) return;
+
+    const createButton = (label, page, disabled = false) => {
+        const b = document.createElement('button');
+        b.textContent = label;
+        b.disabled = disabled;
+        b.addEventListener('click', async () => {
+            if (!lastSearch) return;
+            lastSearch.page = page;
+            try {
+                showSpinner(true);
+                const res = await fetchOmdb({ s: lastSearch.s, y: lastSearch.y, page });
+                renderSearchResults(res.Search || []);
+                renderPagination(parseInt(res.totalResults || 0), page);
+            } catch (e) {
+                console.error(e);
+                alert('Failed to load page');
+            } finally {
+                showSpinner(false);
+            }
+        });
+        return b;
+    };
+
+    // prev
+    pagination.appendChild(createButton('Prev', Math.max(1, currentPage - 1), currentPage === 1));
+
+    // show a few page numbers around current
+    const start = Math.max(1, currentPage - 2);
+    const end = Math.min(total, currentPage + 2);
+    for (let p = start; p <= end; p++) {
+        const btn = createButton(String(p), p, false);
+        if (p === currentPage) btn.disabled = true;
+        pagination.appendChild(btn);
+    }
+
+    // next
+    pagination.appendChild(createButton('Next', Math.min(total, currentPage + 1), currentPage === total));
+}
+
+// Render a detailed view for a single movie
+function renderDetail(movie) {
+    const detail = document.getElementById('detail-view');
+    if (!detail) return;
+    detail.hidden = false;
+    detail.innerHTML = '';
+
+    const top = document.createElement('div');
+    top.className = 'detail-top';
+
+    const img = document.createElement('img');
+    img.src = (movie.Poster && movie.Poster !== 'N/A') ? movie.Poster : 'assets/images/no-poster.png';
+    img.alt = movie.Title;
+
+    const meta = document.createElement('div');
+    meta.innerHTML = `
+        <h2>${movie.Title} (${movie.Year})</h2>
+        <p><strong>Rated:</strong> ${movie.Rated || 'N/A'}</p>
+        <p><strong>Runtime:</strong> ${movie.Runtime || 'N/A'}</p>
+        <p><strong>Genre:</strong> ${movie.Genre || 'N/A'}</p>
+        <p><strong>Director:</strong> ${movie.Director || 'N/A'}</p>
+        <p><strong>Actors:</strong> ${movie.Actors || 'N/A'}</p>
+    `;
+
+    top.appendChild(img);
+    top.appendChild(meta);
+
+    const plot = document.createElement('div');
+    plot.innerHTML = `<h3>Plot</h3><p>${movie.Plot || 'N/A'}</p>`;
+
+    const back = document.createElement('button');
+    back.textContent = 'Back to results';
+    back.addEventListener('click', function () {
+        detail.hidden = true;
+    });
+
+    detail.appendChild(top);
+    detail.appendChild(plot);
+    detail.appendChild(back);
+}
 
     // close button inside the search box
     const closeBtn = document.querySelector('.search-close');
