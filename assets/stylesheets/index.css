@@ -338,3 +338,23 @@ fieldset
     font-weight: bold;
     border-radius: 12px;
 }
+
+
+/*
+    Media style for smaller screens
+*/
+
+@media (max-width: 768px)
+{
+    .btn__menu {
+        display: block;
+    }
+
+    .nav__links {
+        display: none;
+    }
+
+    .header__img--wrapper {
+        z-index: 0;
+    }
+}
