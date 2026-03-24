@@ -339,6 +339,54 @@ fieldset
     border-radius: 12px;
 }
 
+.fa-spinner {
+    animation: rotate(0);
+}
+
+/*
+	FOOTER
+*/
+
+footer {
+    background-color: var(--rbga);
+}
+
+.footer__logo {
+    display: flex;
+}
+
+.footer__logo--img {
+    width: 160px;
+    filter: grayscale(1) invert(1);
+}
+
+.footer__link,
+.footer__copyright {
+    color: var(--white-accent);
+}
+
+.footer__list {
+    margin: 20px 0 24px 0;
+}
+
+.footer__link {
+    padding: 0 8px;
+}
+
+
+/*
+	Keyframes Rotate
+*/
+
+@kayframes rotate {
+    0% {
+        transform: rotate(0);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
 
 /*
     Media style for smaller screens
@@ -356,5 +404,9 @@ fieldset
 
     .header__img--wrapper {
         z-index: 0;
+    }
+
+    button {
+        font-size: 18px;
     }
 }
