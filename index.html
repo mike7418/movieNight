@@ -53,16 +53,95 @@
         <header>
             <div class="header__container">
                 <div class="header__description">
-                    <h1>America's best <span class="color__accent">Movie</span> space</h1>
+                    <h1>America's best <span class="color__accent">Movie</span> Search</h1>
                     <h2>Look up your favorite <span class="color__accent">Movie</span></h2>
                     <a href="#features">
-                        <button class="btn">Browse Movies</button>
+                        <button class="btn">Browse Movies </button>
                     </a>
                 </div>
             </div>
         </header>
-
     </section>
 
+    <main id="movies__main">
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="movies__header">
+                        <h2 class="section__title movies__header--title">
+                            Select <span class="color__accent">Movies</span>
+                        </h2>
+                        <div class="form__box">
+                            <form class="well form-search" id="search-by-title-form" onsubmit="return false;">
+                                <fieldset>
+                                    <legend>By Title</legend>
+                                </fieldset>
+                                <div>
+                                    <label class="control-label" for="t">Title:</label>
+                                    <input type="text" id="t" name="t" class="input-small">
+                                    &nbsp;&nbsp;
+                                    <label class="control-label" for="y">Year:</label>
+                                    <input type="text" id="y" name="y" class="input-small" style="width: 100px;">
+                                    &nbsp;&nbsp;
+                                    <label class="control-label">Plot:</label>
+                                    <select name="plot" style="width: 100px;">
+                                        <option value="" selected="">Short</option>
+                                        <option value="full">Full</option>
+                                    </select>
+                                    &nbsp;&nbsp;
+                                    <button id="search-by-title-button" type="button" class="btn-sm btn-primary">Search</button>
+                                    <button id="search-by-title-reset" type="reset" class="btn-sm">Reset</button>
+                                </div>
+                                <div class="hide" id="search-by-title-request">
+                                    <br />
+                                    <p>Request:</p>
+                                    <pre class="alert alert-box"><a href="javascript:;" target="_blank"></a></pre>
+                                </div>
+                                <div id="search-by-title-progress" class="hide progress progress-info progress-striped active">
+                                    <div class="progress-bar" style="width: 100%;">
+                                    </div>
+                                </div>
+                                <div class="hide" id="search-by-title-response">
+                                    <p>Response:</p>
+                                    <pre class="alert alert-success" style="margin-bottom: 0px; white-space: normal;"></pre>
+                                </div>
+                            </form>
+                            <form class="well form-search" id="search-by-id-form" onsubmit="return false;">
+                                <fieldset>
+                                    <legend>By ID</legend>
+                                </fieldset>
+                                <div>
+                                    <label class="control-label" for="i">ID:</label>
+                                    <input type="text" id="i" name="i" class="input-small" placeholder="IMDb ID">
+                                    &nbsp;&nbsp;
+                                    <label class="control-label">Plot:</label>
+                                    <select name="plot" style="width: 100px;">
+                                        <option value="" selected="">Short</option>
+                                        <option value="full">Full</option>
+                                    </select>
+                                    &nbsp;&nbsp;
+                                    <button id="search-by-id-button" type="button" class="btn-sm btn-primary">Search</button>
+                                    <button id="search-by-id-reset" type="reset" class="btn-sm">Reset</button>
+                                </div>
+                                <div class="hide" id="search-by-id-request">
+                                    <br />
+                                    <p>Request:</p>
+                                    <pre class="alert alert-box"><a href="javascript:;" target="_blank"></a></pre>
+                                </div>
+                                <div id="search-by-id-progress" class="hide progress progress-info progress-striped active">
+                                    <div class="progress-bar" style="width: 100%;">
+                                    </div>
+                                </div>
+                                <div class="hide" id="search-by-id-response">
+                                    <p>Response:</p>
+                                    <pre class="alert alert-success" style="margin-bottom: 0px; white-space: normal;"></pre>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 </body>
 </html>
