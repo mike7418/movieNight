@@ -15,7 +15,7 @@
 :root {
     --primary-color: #000;
     --secondary-color: #fff;
-    --background: #d4d6e2;
+    --background: #f3f1f1;
     --select_color: #dcdfe6;
     --ratings-color: #7342d65d;
     --star-color: #fabf2a;
@@ -252,20 +252,47 @@ header
 .container {
     display: flex;
     background-color: var(--background);
+    background-image: url('assets\images\movie-film-clip-art-movies.gif');
     min-height: 100vh;
+    position: relative;
 }
 
 /* 
     SEARCH BOX
 */
 
-.movies__search--box
-{
+.movies__search--box {
+    position: absolute;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
     border: 1px solid var(--primary-color);
     background-color: var(--secondary-color);
     border-radius: 8px;
     padding: 12px 14px;
+    box-sizing: border-box;
+    box-shadow: 5px 10px 15px #888888;
+    left: 50%;
+    top: 5%;
+    transform: translateX(-50%);
+}
+
+.control-label
+{
+    line-height: 2.5;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+textarea,
+select {
+  width: 100%;
+  padding: 12px 20px; /* Space inside the box */
+  margin: 8px 0; /* Space outside the box */
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px; /* Rounded corners */
+  box-sizing: border-box; /* Ensures padding/border is included in width */
+  font-size: 16px;
 }

@@ -68,16 +68,13 @@
             <div class="container">
                 <div class="row">
                     <div class="movies__header">
-                        <h2 class="section__title movies__header--title">
-                            Select <span class="color__accent">Movies</span>
-                        </h2>
                         <div class="movies__search--box">
                             <form class="search movies__search" id="search--form" onsubmit="return false;">
                                 <fieldset>
                                     <legend>Search Movie By:</legend>
-                                    <div>
+                                    <div class="search__form">
                                         <label class="control-label" for="t">Title:</label>
-                                        <input type="text" id="s" name="s" class="input-small">
+                                        <input type="text" id="s" name="s" class="input-small" placeholder="Any part of the title">
                                         &nbsp;&nbsp;
                                         <label class="control-label" for="y">Year:</label>
                                         <input type="text" id="y" name="y" class="input-small" style="width: 100px;">
@@ -92,9 +89,10 @@
                                                 <option value="full">Full</option>
                                             </select>
                                             &nbsp;&nbsp;
-                                            <button id="search-by-id-button" type="button" class="btn-sm btn-primary">Search</button>
-                                            <button id="search-by-id-reset" type="reset" class="btn-sm">Reset</button>
+                                            <button id="search-button" type="button" class="btn-sm btn-primary">Search</button>
+                                            <button id="search-reset" type="reset" class="btn-sm">Reset</button>
                                         </div>
+                                    </div>
                                 </fieldset>
                             </form>
                         </div>
