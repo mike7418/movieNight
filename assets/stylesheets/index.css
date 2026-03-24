@@ -284,12 +284,6 @@ header
     left: 50%;
     top: 5%;
     transform: translateX(-50%);
-    z-index: 10;
-    /* hidden by default, revealed when .visible is added */
-    visibility: hidden;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 200ms ease, visibility 0s linear 200ms;
 }
 
 .movies__search--box.visible {
@@ -318,35 +312,4 @@ select {
   border-radius: 4px; /* Rounded corners */
   box-sizing: border-box; /* Ensures padding/border is included in width */
   font-size: 16px;
-}
-
-fieldset
-{
-    border-radius: 12px;
-    font-weight: bold;
-}
-
-
-
-
-
-
-
-/*
-    media reformatting
-*/
-
-@media (max-width: 768px)
-{
-    .btn__menu {
-        display: block;
-    }
-
-    .nav__links {
-        display: none;
-    }
-
-    .header__img--wrapper {
-        z-index: 0;
-    }
 }
