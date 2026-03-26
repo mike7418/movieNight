@@ -1,9 +1,7 @@
 ﻿<!DOCTYPE html>
-
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movie Night</title>
     <script src="https://kit.fontawesome.com/11bec134ab.js" crossorigin="anonymous"></script>
@@ -11,16 +9,19 @@
     <script src="assets/javascripts/index.js"></script>
 </head>
 <body>
-    <section id="landing">
+    <section>
         <nav>
             <div class="nav__container">
-                <img src="assets/images/1000_F_1857308472_esgZtxD24CWg1pbbqxbToE8Ly7qHIxzj.webp" alt="" class="logo">
+                <img src="assets/images/1000_F_1857308472_esgZtxD24CWg1pbbqxbToE8Ly7qHIxzj.webp" / class="logo">
                 <ul class="nav__links">
                     <li>
-                        <a href="#" class="nav__link">Home</a>
+                        <a href="index.html" class="nav__link">Home</a>
                     </li>
                     <li>
                         <a href="#" class="nav__link">Contact</a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav__link">About Us</a>
                     </li>
                     <li>
                         <a href="#" class="nav__link nav__link--primary">Movies</a>
@@ -31,102 +32,27 @@
                 </button>
                 <div class="menu__backdrop">
                     <button class="btn__menu btn__menu--close" onclick="closeMenu()">
-                        <i class="fas fa-close"></i>
+                        <i class="fas fa-times"></i>
                     </button>
-                    <div class="menu__backdrop">
-                        <ul class="menu__links">
-                            <li class="menu__list">
-                                <a href="" class="menu__link" onclick="closeMenu()">Home</a>
-                            </li>
-                            <li class="menu__list">
-                                <a href="" class="menu__link" onclick="closeMenu()">Movies</a>
-                            </li>
-                            <li class="menu__list">
-                                <a href="" class="menu__link" onclick="closeMenu()">Contact</a>
-                            </li>
-                        </ul>
-                    </div>
+                    <ul class="menu__links">
+                        <li class="menu__list">
+                            <a href="index.html" class="menu__link" onclick="closeMenu()">Home</a>
+                        </li>
+                        <li class="menu__list">
+                            <a href="" class="menu__link" onclick="closeMenu()">About Us</a>
+                        </li>
+                        <li class="menu__list">
+                            <a href="" class="menu__link" onclick="closeMenu()">Contact</a>
+                        </li>
+                        <li class="menu__list">
+                            <a href="" class="menu__link" onclick="closeMenu()">Movies</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </nav>
-
-        <header>
-            <div class="header__container">
-                <div class="header__description">
-                    <h1>America's best <span class="color__accent">Movie</span> Search</h1>
-                    <h2>Look up your favorite <span class="color__accent">Movie</span></h2>
-                    <a href="#features">
-                        <button id="toggle-search" class="btn">Search Movies </button>
-                    </a>
-                </div>
-            </div>
-        </header>
     </section>
 
-    <main id="movies__main">
-        <section>
-            <div class="container">
-                <div class="row">
-                    <div class="movies__header">
-                        <div class="movies__search--box">
-                            <button type="button" class="search-close" aria-label="Close search">&times;</button>
-                            <form class="search movies__search" id="search--form" onsubmit="return false;">
-                                <fieldset>
-                                    <legend>Search Movie By:</legend>
-                                    <div class="search__form">
-                                        <label class="control-label" for="t">Title:</label>
-                                        <input type="text" id="s" name="s" class="input-small" placeholder="Any part of the title">
-                                        &nbsp;&nbsp;
-                                        <label class="control-label" for="y">Year:</label>
-                                        <input type="text" id="y" name="y" class="input-small" style="width: 100px;">
 
-                                        <div>
-                                            <label class="control-label" for="i">IMDB ID:</label>
-                                            <input type="text" id="i" name="i" class="input-small" placeholder="IMDb ID">
-                                            &nbsp;&nbsp;
-                                            <label class="control-label">Plot:</label>
-                                            <select name="plot" style="width: 100px;">
-                                                <option value="" selected="">Short</option>
-                                                <option value="full">Full</option>
-                                            </select>
-                                            &nbsp;&nbsp;
-                                            <button id="search-button" type="button" class="btn btn-primary">Search</button>
-                                            <button id="search-reset" type="reset" class="btn">Reset</button>
-                                        </div>
-                                    </div>
-                                </fieldset>
-                            </form>
-                        </div>
-                        <div class="movies" id="movies-container">
-                            <i class="fas fa-spinner movies__loading--spinner" id="movies-spinner" hidden></i>
-                            <div id="search-results" class="results-grid" aria-live="polite"></div>
-                            <div id="pagination" class="pagination" aria-label="Search pagination"></div>
-                            <div id="detail-view" class="detail-view" hidden></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-    <footer>
-        <div class="container">
-            <div class="row row__column">
-                <a href="#">
-                    <figure class="footer__logo">
-                        <img src="assets/images/Library." alt="" class="footer__logo--img">
-                    </figure>
-                </a>
-                <div class="footer__list">
-                    <a href="#" class="footer__link">Home</a>
-                    <a href="" class="footer__link no-cursor">About</a>
-                    <a href="#features" class="footer__link">Movies</a>
-                    <a href="" class="footer__link no-cursor">Contact</a>
-                </div>
-                <div class="footer__copyright">
-                    Copyright &copy; 2026 Movie Search
-                </div>
-            </div>
-        </div>
-    </footer>
 </body>
 </html>
