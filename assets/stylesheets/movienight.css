@@ -26,6 +26,12 @@ form {
         object-fit: cover;
     }
 
+        .card img:hover {
+            filter: saturate(1.1);
+            transform: scale(1.03);
+            transition: all 600ms ease;
+        }
+
 #pagination {
     margin-top: 20px;
 }

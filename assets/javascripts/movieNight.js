@@ -1,5 +1,5 @@
 // JavaScript source code
-// https://www.omdbapi.com/?apikey=fbd4261d
+// https://www.omdbapi.com/?apikey=fbd4261d&s=all
 
 
 const API_KEY = "fbd4261d";
@@ -39,7 +39,8 @@ const API_KEY = "fbd4261d";
             card.classList.add("card");
 
             card.innerHTML = `
-            <img src="${movie.Poster}" onerror="this.src='assets/images/000000H1.jpg'" />
+            <a href="movie-card.html?imdbID=${movie.imdbID}">
+            <img src="${movie.Poster}" onerror="this.src='assets/images/000000H1.jpg'" /></a>
       <h3>${movie.Title}</h3>
       <h5>${movie.Type}</h5>
       <p>${movie.Year}</p>
