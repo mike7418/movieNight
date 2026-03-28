@@ -15,7 +15,7 @@
 :root {
     --base-color: rgba(12, 12, 12, 0.8);
     --modal-background: black;
-    --font-color: rgba(12, 12, 12, 0.18);
+    --font-color: rgba(215, 215, 215, 0.82);
     --accent-color: rgba(12, 255, 12, 1);
     --accent-text: rgba(12, 255, 12, 0.25);
     --link-color: rgba(255, 255, 255, 0.25);
