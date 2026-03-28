@@ -258,6 +258,7 @@ select {
     border-radius: 4px; /* Rounded corners */
     box-sizing: border-box; /* Ensures padding/border is included in width */
     font-size: 16px;
+    background-color: rgba(215, 215, 215, 0.82);
 }
 
 #searchForm button {
@@ -343,7 +344,7 @@ footer
 
 .footer__copyright
 {
-    color: var(--base-color);
+    color: var(--button-text);
     font-weight: 700;
     text-align: center;
 }
