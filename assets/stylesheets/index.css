@@ -59,6 +59,11 @@ li {
     list-style-type: none;
 }
 
+h1, h2, h3, h4, h5, h6, p
+{
+    color: var(--modal-background);
+}
+
 h1 {
     font-size: 56px;
     margin-bottom: 24px;
