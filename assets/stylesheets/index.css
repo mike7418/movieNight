@@ -17,9 +17,11 @@
     --modal-background: rgba(12, 0, 12, 0.44);
     --font-color: rgba(12, 12, 12, 0.18);
     --accent-color: rgba(12, 255, 12, 1);
+    --accent-text: rgba(12, 255, 12, 0.25);
     --link-color: rgba(255, 255, 255, 0.25);
     --footer-base: rgba(50, 50, 50, 1);
     --button_color: rgba(175, 175, 175, 0.5);
+    --button-text: rgba(215, 215, 215, 0.82);
 }
 
 html {
@@ -62,16 +64,34 @@ h2 {
     text-align: center;
 }
 
+h3{
+    text-align: center;
+    margin-bottom: 16px;
+}
+
 button {
     cursor: pointer;
 }
 
-    button:active {
-        transform: translateY(1px);
-    }
+button:active {
+    transform: translateY(1px);
+}
 
 .btn {
     background-color: var(--button_color);
+    color: var(--button-text);
+    font-size: 18px;
+    font-weight: bold;
+    box-shadow: inset 0px -5px 10px 0px rgba(0, 0, 0, 0.5);
+    padding: 12px 16px;
+    border-radius: 4px;
+    display: block;
+    margin: 0 auto;
+}
+
+.btn:hover {
+    color: var(--link-color);
+    transition: all 600ms ease;
 }
 
 nav {
@@ -79,13 +99,21 @@ nav {
     display: flex;
 }
 
-
 img {
     width: 100%;
 }
 
 .logo {
     width: 160px;
+}
+
+.accent__color
+{
+    color: var(--accent-color);
+}
+
+.accent__text {
+    color: var(--accent-text);
 }
 
 /*
@@ -111,20 +139,23 @@ img {
     padding: 8px;
 }
 
-    .nav__link:hover {
-        //text-decoration: underline;
-        color: var(--accent-color);
-    }
+.nav__link:hover {
+    //text-decoration: underline;
+    color: var(--accent-color);
+    box-shadow: inset 0px -5px 10px 0px rgba(0, 0, 0, 0.5);
+    border-radius: 6px;
+    transition: all 600ms ease;
+}
 
 .nav__link--primary {
     border: 2px solid var(--link-color);
     border-radius: 4px;
 }
 
-    .nav__link--primary:hover {
-        text-decoration: none;
-        color: var(--accent-color);
-    }
+.nav__link--primary:hover {
+    text-decoration: none;
+    color: var(--accent-color);
+}
 
 .btn__menu {
     background-color: transparent;
@@ -133,7 +164,12 @@ img {
     color: var(--link-color);
     display: none;
 }
-
+.btn__movies {
+    background-color: transparent;
+    font-size: 40px;
+    border: none;
+    color: var(--link-color);
+}
 .menu__backdrop {
     position: absolute;
     background-color: var(--modal-background);
@@ -156,11 +192,11 @@ img {
     overflow: hidden;
 }
 
-    .menu--open .menu__backdrop {
-        visibility: visible !important;
-        opacity: 1;
-        transform: translate(0);
-    }
+.menu--open .menu__backdrop {
+    visibility: visible !important;
+    opacity: 1;
+    transform: translate(0);
+}
 
 .menu__links {
     display: flex;
@@ -189,11 +225,109 @@ img {
     color: var(--link-color);
 }
 
+/*
+    MAIN SECTION 
+*/
+
+#movies
+{
+    width: 100%;
+    max-width: 1300px;
+    display: flex;
+    margin: 0 auto;
+}
+
+#searchForm
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+textarea,
+select {
+    width: 10px%;
+    padding: 12px 20px; /* Space inside the box */
+    margin: 8px 8px; /* Space outside the box */
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px; /* Rounded corners */
+    box-sizing: border-box; /* Ensures padding/border is included in width */
+    font-size: 16px;
+}
+
+#searchForm button {
+   margin: 0;
+}
+
+/*
+    MOVIE DISPLAY
+*/
+
+#movies
+{
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+}
+
+.grid {
+    display: flex;
+    max-width: 1000px;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 0 auto;
+}
+
+#pagination {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 1000px;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 2em;
+}
+
+    #pagination button {
+        margin: 3px;
+        padding: 5px 10px;
+        height: 30px;
+        cursor: pointer;
+    }
 
 
 
 
 
+
+/*
+    Media style for smaller screens
+*/
+
+@media (max-width: 768px) {
+    .btn__menu {
+        display: block;
+    }
+
+    .nav__links {
+        display: none;
+    }
+
+    .header__img--wrapper {
+        z-index: 0;
+    }
+
+    button {
+        font-size: 18px;
+    }
+}
 
 
 

@@ -6,6 +6,7 @@
     <title>Movie Night</title>
     <script src="https://kit.fontawesome.com/11bec134ab.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="assets/stylesheets/index.css">
+    <link rel="stylesheet" href="assets/stylesheets/movienight.css">
     <script src="assets/javascripts/index.js"></script>
 </head>
 <body>
@@ -52,7 +53,30 @@
             </div>
         </nav>
     </section>
+    <main>
+        <section id="introduction">
+            <h2>
+                Welcome to <span class="accent__text">Movie Night</span>
+            </h2>
+            <h3>Your complete movie database</h3>
+            <h2>Movie Search</h2>
 
+            <form id="searchForm">
+                <input type="text" id="title" placeholder="Movie Title" required />
+                <input type="text" id="year" placeholder="Year (optional)" />
+                <button type="submit" class="btn">Search</button>
+            </form>
+        </section>
+        <section id="movies">
+
+
+            <div id="results" class="grid"></div>
+            <div id="pagination"></div>
+
+
+            <script src="assets/javascripts/movienight.js"></script>
+        </section>
+    </main>
 
 </body>
 </html>
